@@ -7,6 +7,9 @@ fn main() {
 
     sum_product_type_example();
     println!("-----------------------------------------");
+
+    nested_enum_example();
+    println!("-----------------------------------------");
 }
 
 fn use_optionenum_iterator_patternmatching() {
@@ -52,3 +55,32 @@ fn process_msg(msg: Message){
         }
     }
 }
+    
+    fn nested_enum_example() {
+        enum Employee {
+            Manager {
+                name: String,
+                employees: Vec<Box<Employee>>
+            },
+            Worker {
+                name: String,
+                manager: String
+            }
+        }
+
+        let employee = Employee::Worker {
+            name: String::from("John"), 
+            manager: String::from("Jane")
+        };
+
+        match employee {
+            Employee::Manager { name, employees } => {
+                println!("The manager's name is {0}", name);
+                println!("The manager has {0} employees", employees.len());
+            },
+            Employee::Worker { name, manager } => {
+                println!("The worker's name is {0}", name);
+                println!("The worker's manager is {0}", manager);
+            }
+        }
+    }
