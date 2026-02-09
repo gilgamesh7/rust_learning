@@ -1,8 +1,5 @@
 # rust_learning
-Repo for trying out rust code while learning
-
-# Notes
-- If you want to run a different file as a standalone binary, you would need to configure that file as a separate binary in your Cargo.toml under the [bin] section or **put it in the src/bin directory**.
+[Udemy "The Complete Rust Programming Course"](https://sparknz.udemy.com/course/rust-programming-the-complete-guide/learn/lecture/30253516#overview)
 
 # Install
 - Macos : curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
