@@ -1,0 +1,10 @@
+Windows 10 Install
+
+Rust's Official Website
+	- https://www.rust-lang.org/tools/install
+
+Microsoft C++ Build Tools
+	- https://visualstudio.microsoft.com/visual-cpp-build-tools/
+	- Remember to select "Desktop Development with C++"
+
+Run rustc --version to ensure you have installed the latest version of Rust successfully
