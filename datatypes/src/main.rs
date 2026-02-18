@@ -51,4 +51,49 @@ fn main() {
 
     let a:char = e.2;
     println!("The value of a is: {}", a);
+
+    // Array
+    let f:[i32; 5] = [1, 2, 3, 4, 5];
+    println!("The value of f is: {:?}", f);
+    println!("The value of f is: {:#?}", f);
+    // println!("The value of f is : {}", f); the trait `std::fmt::Display` is not implemented for `[i32; 5]`
+    println!("The first value of f is: {}", f[0]);
+    println!("The second value of f is: {}", f[1]);
+    println!("The third value of f is: {}", f[2]);
+    println!("The fourth value of f is: {}", f[3]);
+    println!("The fifth value of f is: {}", f[4]);
+
+    let mut array: [i32;5] = [1,2,3,4,5];
+    println!("The value of array is: {:?}", array);
+    array[0] = 10;
+    println!("The value of array is: {:?}", array);
+
+    // Vector
+    let mut g:Vec<i32> = vec![1, 2, 3, 4, 5];
+    println!("The value of g is: {:?}", g);
+    g.push(6);
+    println!("The value of g is: {:?}", g);
+
+    let mut h:Vec<char> = vec!['R', 'u', 's', 't'];
+    println!("The value of h is: {:?}", h);
+    h.pop();
+    println!("The value of h is: {:?}", h);
+
+    let mut j:Vec<i8> = Vec::new();
+    j.push(1);
+    j.push(2);
+    j.push(3);
+    println!("The value of j is: {:?}", j);
+
+    let mut k = Vec::<i8>::with_capacity(2);
+    k.push(1);
+    k.push(2);
+    println!("The value of k is: {:?}", k);
+    println!("The capacity of k is: {}", k.capacity());
+    k.push(3);
+    println!("The capacity of k is: {}", k.capacity());
+
+    // iterators
+    let l:Vec<i32> = (0..5).collect();
+    println!("The value of l is: {:?}", l);
 }
