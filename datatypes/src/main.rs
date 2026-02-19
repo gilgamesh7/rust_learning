@@ -96,4 +96,20 @@ fn main() {
     // iterators
     let l:Vec<i32> = (0..5).collect();
     println!("The value of l is: {:?}", l);
+
+    // Slice
+    let m:Vec<i8> = (0..5).collect();
+    println!("The value of m is: {:?}", m);
+
+    let sm: &[i8] = &m;
+    println!("The value of sm is: {:?}", sm);
+    println!("Pointer : {:p}", sm.as_ptr());
+    println!("Length : {}", sm.len());
+
+    let sm2: &[i8] = &m[1..3];
+    println!("The value of sm2 is: {:?}", sm2);
+
+    use std::mem;
+    println!("Size of slice reference: {}", mem::size_of_val(&sm));
+    println!("Size of normal reference: {}", mem::size_of::<&i8>());
 }
