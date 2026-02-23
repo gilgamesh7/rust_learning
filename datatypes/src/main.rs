@@ -112,4 +112,24 @@ fn main() {
     use std::mem;
     println!("Size of slice reference: {}", mem::size_of_val(&sm));
     println!("Size of normal reference: {}", mem::size_of::<&i8>());
+
+    // String
+    let my_string: String = String::from("Hello, Rust!");
+    println!("The value of my_string is: {}", my_string);
+    let my_string2: String = "Hello, Rust!".to_string();
+    println!("The value of my_string2 is: {}", my_string2);
+    let my_string3: String = my_string.replace("Rust", "World");
+    println!("The value of my_string3 is: {}", my_string3);
+
+    // String slice
+    let my_string_slice: &str = "Hello, Rust!";
+    println!("The value of my_string_slice is: {}", my_string_slice);
+
+    let my_string_from_slice = my_string_slice.to_string();
+    println!("The value of my_string_from_slice is: {}", my_string_from_slice);
+    let my_string_from_slice_slice = &my_string_from_slice;
+    println!("The value of my_string_from_slice_slice is: {}", my_string_from_slice_slice);
+
+    // compare
+    println!("{}", "HELLO".to_lowercase() == "hello");
 }
