@@ -132,4 +132,9 @@ fn main() {
 
     // compare
     println!("{}", "HELLO".to_lowercase() == "hello");
+
+    // String literal
+    let my_string_literal : &str = "\x52\x75\x73\x74";
+    println!("The value of my_string_literal is: {}", my_string_literal);
+
 }
