@@ -12,4 +12,10 @@ fn main() {
     let y = x.clone(); // Clone the vector, creating a new one on the heap
     println!("{:?}", x); // This will work because x is still valid
     println!("{:?}", y); // This will also work because y is a clone of x
+
+    // Copy
+    let x = 1; // On the stack
+    let y = x; // Copy the value of x to y
+    println!("{}", x); // This will work because x is still valid
+    println!("{}", y); // This will also work because y is a copy of x - implementscopy trait
 }
