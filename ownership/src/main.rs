@@ -34,6 +34,17 @@ fn main() {
     let s3: String = takes_and_gives_back(s2); // s2 is moved into the function and then returned, moving ownership to s3
     println!("{}", s3); 
     // println!("{}", s2); // This will cause a compile-time error because s2 is no longer
+
+    // References and borrowing
+
+    let mut s1: String = String::from("Hello"); // On the heap
+    change_string(&mut s1);
+    println!("{}", s1); // This will work because we passed a mutable reference to the function, allowing it to modify the string without taking ownership
+
+}
+
+fn change_string(some_string: &mut String) {
+    some_string.push_str(", world!"); // Modify the string through the mutable reference
 }
 
 fn takes_ownership(some_string: String) {
