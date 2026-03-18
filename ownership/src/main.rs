@@ -1,6 +1,6 @@
 fn main() {
-    let var_1 = 1; // On the stack
-    let var_2 = String::from("Hello"); // On the heap
+    let _var_1 = 1; // On the stack
+    let _var_2 = String::from("Hello"); // On the heap
 
     let x = vec!["Hello".to_string()]; // On the heap
     let y = x; // Move ownership of the vector to y
