@@ -8,6 +8,25 @@ struct Coordinates(i32, i32, i32);
 
 struct UnitStruct;
 
+struct Square{
+    width: u32,
+    height: u32,
+}
+
+impl Square{
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    fn whats_my_width(&self) -> u32 {
+        self.width
+    }
+
+    fn change_width(&mut self, new_width: u32) {
+        self.width = new_width;
+    }
+}
+
 fn main() {
     let user1 = User {
         active: true,
@@ -22,6 +41,16 @@ fn main() {
 
     let coords = Coordinates(10, 20, 30);
     println!("Coordinates: ({}, {}, {})", coords.0, coords.1, coords.2);
+
+    let sq = Square { width: 5, height: 10 };
+    println!("Square: width {}, height {}", sq.width, sq.height);
+    println!("Area of the square: {}", sq.area());
+    println!("Width of the square: {}", sq.whats_my_width());
+
+    let mut sq2 = Square { width: 3, height: 4 };
+    println!("Square 2: width {}, height {}", sq2.width, sq2.height);
+    sq2.change_width(6);
+    println!("Square 2 after width change: width {}, height {}", sq2.width, sq2.height);
 }
 
 fn build_user(username: String) -> User {
