@@ -51,8 +51,23 @@ fn main() {
     println!("Square 2: width {}, height {}", sq2.width, sq2.height);
     sq2.change_width(6);
     println!("Square 2 after width change: width {}, height {}", sq2.width, sq2.height);
+
+    let r;
+    {
+        let x = 5;
+        r = &x;
+    }
+    // println!("Value of r: {}", r); // This will cause a compile-time error because r is referencing x which has gone out of scope.
+
+    let s = String::from("hello");
+    let r = example_for_lifetime_annotation(&s);
+    println!("Value of r: {}", r);
+
 }
 
+fn example_for_lifetime_annotation<'a>(x: &'a str) -> &'a str{
+    x
+}
 fn build_user(username: String) -> User {
     User {
         active: true,
