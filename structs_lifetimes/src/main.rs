@@ -63,6 +63,17 @@ fn main() {
     let r = example_for_lifetime_annotation(&s);
     println!("Value of r: {}", r);
 
+    let str1 = String::from("Hello");
+    let str2 = MyString { text: &str1 };
+    println!("MyString text: {}", str2.text);
+
+    let str3: &'static str = "This is a static string";
+    println!("Static string: {}", str3);
+
+}
+
+struct MyString<'a>{
+    text: &'a str,
 }
 
 fn example_for_lifetime_annotation<'a>(x: &'a str) -> &'a str{
