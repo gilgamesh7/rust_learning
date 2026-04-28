@@ -3,7 +3,8 @@
 enum Pet{
     dog,
     cat,
-    fish
+    fish,
+    turtle,
 }
 
 impl Pet{
@@ -11,7 +12,8 @@ impl Pet{
         match self{
             Pet::dog => "I am a dog",
             Pet::cat => "I am a cat",
-            Pet::fish => "I am a fish"
+            Pet::fish => "I am a fish",
+            Pet::turtle => "I am a turtle",
         }
     }
 }
@@ -30,6 +32,22 @@ struct IpAddr{
 //     None,
 //     Some(T),
 // }
+
+fn plus_one(x: Option<i32>) -> Option<i32>{
+    match x{
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
+fn what_pet_is_it(pet: Pet) -> &'static str{
+    match pet{
+        Pet::dog => "I am a dog",
+        Pet::cat => "I am a cat",
+        Pet::fish => "I am a fish",
+        _ => "I am some other pet"
+    }
+}
 
 fn main() {
     let my_dog = Pet::dog;
@@ -56,5 +74,17 @@ fn main() {
     // let sum = x + y; // error[E0277]: cannot add `Option<i32>` to `i32`
     let sum = x + y.unwrap(); // This will work, but be careful with unwrap() as it can panic if y is None  
     println!("The sum is: {}", sum);
+
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+    println!("five: {:?}, six: {:?}, none: {:?}", five, six, none);
+    println!("five: {:?}, six: {:?}, none: {:?}", five.unwrap(), six.unwrap(), none);
+
+    let my_dog = Pet::dog;
+    println!("What pet is it? {}", what_pet_is_it(my_dog));
+
+    let my_turtle = Pet::turtle;
+    println!("What pet is it? {}", what_pet_is_it(my_turtle));
     
 }
