@@ -86,5 +86,28 @@ fn main() {
 
     let my_turtle = Pet::turtle;
     println!("What pet is it? {}", what_pet_is_it(my_turtle));
+
+    let dog2: Option<Pet> = Some(Pet::dog);
+    if let Some(Pet::dog) = dog2 {
+        println!("It's a dog!");
+    } else {
+        println!("It's not a dog.");
+    }
+
+    let dog2: Option<Pet> = Some(Pet::cat);
+    if let Some(Pet::dog) = dog2 {
+        println!("It's a dog!");
+    } else {
+        println!("It's not a dog.");
+    }
+
+    let mut stack: Vec<i8> = Vec::new();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    while let Some(top) = stack.pop() {
+        println!("{}", top);
+    }
     
 }
