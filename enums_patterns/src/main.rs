@@ -109,5 +109,29 @@ fn main() {
     while let Some(top) = stack.pop() {
         println!("{}", top);
     }
-    
+
+    let x : i8 = 1;
+
+    match x {
+        1 | 2 => println!("one or two"),
+        _ => println!("something else"),
+    }
+
+    let x : i8 = 5;
+    match x {
+        1 | 2 => println!("one or two"),
+        _ => println!("something else"),
+    }
+    let x:i8 = 5;
+    match x {
+        1..=5 => println!("one through five"),
+        _ => println!("something else"),    
+    }
+    let x:Option<i8> = Some(5);
+    let y:i8 = 5;
+    match x {
+        Some(10) => println!("ten"),
+        Some(n) if n == y => println!("matched, n = {}", n),
+        _ => println!("something else"),
+    }        
 }
