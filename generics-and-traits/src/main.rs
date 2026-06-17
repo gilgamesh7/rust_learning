@@ -54,4 +54,17 @@ fn main() {
 
     println!("{}", course1.overview());
     println!("{}", course2.overview());
+
+    call_overview(&course1);
+    call_overview(&course2);
+    call_overview_generic(&course1);
+    call_overview_generic(&course2);
+}
+
+fn call_overview(item: &impl Overview) {
+    println!("{}", item.overview());
+}
+
+fn call_overview_generic<T: Overview>(item: &T) {
+    println!("{}", item.overview());
 }
