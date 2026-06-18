@@ -30,6 +30,12 @@ impl Overview for Course {
     }
 }
 
+impl Drop for Course {
+    fn drop(&mut self) {
+        println!("Dropping Course: {}", self.author);
+    }
+}
+
 impl Overview for AnotherCourse {
     fn overview(&self) -> String {
         format!("{} by {}", self.headline, self.author)
@@ -55,10 +61,14 @@ fn main() {
     println!("{}", course1.overview());
     println!("{}", course2.overview());
 
+
     call_overview(&course1);
     call_overview(&course2);
     call_overview_generic(&course1);
     call_overview_generic(&course2);
+
+    // drop(course1); //Will still be called when it goes out of scope
+
 }
 
 fn call_overview(item: &impl Overview) {
