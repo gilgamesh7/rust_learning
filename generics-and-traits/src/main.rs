@@ -1,7 +1,23 @@
+use std::ops::Add;
+
+#[derive(Debug)]
 struct Point<T> {
     x: T,
     y: T,
 }
+
+
+impl<T> Add for Point<T>
+where
+    T: Add<Output = T>{
+        type Output = Self;
+        fn add(self, rhs:Self)->Self{
+            Point{
+                x: self.x + rhs.x,
+                y: self.y + rhs.y,
+            }
+        }
+    }
 
 struct Point2<T, U> {
     x: T,
@@ -68,6 +84,13 @@ fn main() {
     call_overview_generic(&course2);
 
     // drop(course1); //Will still be called when it goes out of scope
+
+    let coord3 = Point{x: 5, y: 10};
+    let coord4 = Point{x: 15, y: 20};   
+
+    let sum = coord3 + coord4;  
+    println!("Sum of coordinates: ({:?})", sum);
+
 
 }
 
